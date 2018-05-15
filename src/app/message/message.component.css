@@ -1,0 +1,27 @@
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msg {
+    animation: slide-up 0.4s ease;
+}
+
+.msg-wrapper.my-msg .msg {
+    float: left;
+}
+
+.msg-wrapper.other-msg .msg {
+    float: right;
+}
+
+.msg-wrapper.other-msg .msg label {
+    text-align: right;
+    width: 100%;
+}

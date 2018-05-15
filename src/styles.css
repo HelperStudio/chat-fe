@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.msg-container {
+    height: 80vh;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.control-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20vh;
+}
+
+.control-container form {
+    width: 100%;
+}

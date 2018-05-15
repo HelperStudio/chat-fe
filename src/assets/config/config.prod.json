@@ -1,0 +1,9 @@
+{
+    "env": {
+        "name": "DEV"
+    },
+
+    "apiServer": {
+        "url": "http://demochat-be.helper-studio.com"
+    }
+}
