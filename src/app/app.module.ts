@@ -2,14 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule, APP_INITIALIZER  } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 import { HelloComponent } from './hello/hello.component';
+import { UserListComponent } from './userlist/userlist.component';
 
 import { IdentityService } from './services/identity.service';
 import { SocketService } from './services/socket.service';
+import { UserService } from './services/user.service';
 
 import { AuthGuardService } from './auth/auth.guard';
 
@@ -36,10 +39,12 @@ const appRoutes: Routes = [
     AppComponent,
     MessageComponent,
     ChatComponent,
-    HelloComponent
+    HelloComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     HttpModule ,
     RouterModule.forRoot(
@@ -52,7 +57,11 @@ const appRoutes: Routes = [
     { provide: APP_INITIALIZER,
       useFactory: initializeApp,
       deps: [AppConfig], multi: true },
-      IdentityService, SocketService, AuthGuardService],
+      IdentityService, 
+      SocketService, 
+      AuthGuardService, 
+      UserService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
