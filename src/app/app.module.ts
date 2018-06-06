@@ -9,6 +9,7 @@ import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 import { HelloComponent } from './hello/hello.component';
 import { UserListComponent } from './userlist/userlist.component';
+import { UserComponent } from './userlist/user/user.component';
 
 import { IdentityService } from './services/identity.service';
 import { SocketService } from './services/socket.service';
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     MessageComponent,
     ChatComponent,
     HelloComponent,
-    UserListComponent
+    UserListComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

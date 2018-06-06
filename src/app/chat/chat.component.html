@@ -4,18 +4,20 @@
             <div class="msg-container" id="msgContainer">
                 <message *ngFor="let message of socketService.messages" [message]="message"></message>
             </div>
+            <div class="userlist-container">
+                <userlist></userlist>
+            </div>
             <div class="control-container">
-                <form>
-                    <div class="row">
-                        <div class="col-9 col-md-10">
-                            <input type="text" autofocus name="text" (keydown.enter)="send()" class="form-control" id="msgInput" placeholder="Enter message" [(ngModel)]="text">
-                        </div>
-                        <div class="col-3 col-md-2">
-                            <button type="button" class="btn btn-primary mb-2" (click)='send()'>Send</button>
-                        </div>
-                    </div>
+                <form class="form-inline">
+
+
+                    <input type="text" autofocus name="text" (keydown.enter)="send()" class="form-control mb-2" id="msgInput" placeholder="Enter message" [(ngModel)]="text">
+
+
+                    <button type="button" class="btn btn-primary mb-2" (click)='send()'>Send</button>
                 </form>
             </div>
+
         </div>
     </div>
 </div>

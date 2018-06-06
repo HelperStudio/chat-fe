@@ -1,0 +1,4 @@
+.control-container input {
+    width: calc(100% - 65px);
+    margin-right: 3px;
+}

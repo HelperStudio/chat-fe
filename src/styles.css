@@ -2,7 +2,7 @@
 
 @import '~bootstrap/dist/css/bootstrap.min.css';
 .msg-container {
-    height: 80vh;
+    height: 70vh;
     padding: 20px;
     overflow-y: auto;
 }
@@ -16,4 +16,14 @@
 
 .control-container form {
     width: 100%;
+}
+
+.control-container .button-container {
+    text-align: right;
+}
+
+.userlist-container {
+    height: 10vh;
+    padding: 5px;
+    border-top: 1px solid #e2e2e2;
 }
