@@ -17,7 +17,7 @@ export class ChatComponent implements AfterViewInit  {
 
   constructor(private _socketService: SocketService, private identityService:IdentityService){
       this.socketService = _socketService;
-    this.socketService.initialize();
+      this.socketService.initialize();
     
   }
 
