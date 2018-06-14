@@ -1,20 +1,12 @@
 {
-    "env": {
-        "name": "DEV"
-    },
-
-    "apiServer": {
-        "url": "http://localhost:3000"
-    },
-
-    "google": {
+    "web": {
         "client_id": "601317135063-mtft6j3ge7o541q2beou5t4n5tec5eef.apps.googleusercontent.com",
         "project_id": "chat-207214",
         "auth_uri": "https://accounts.google.com/o/oauth2/auth",
         "token_uri": "https://accounts.google.com/o/oauth2/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_secret": "xRYqtdO8nab33vp1hRdKeXGF",
-        "redirect_uris": ["http://localhost:4200/oauth2callback"],
-        "javascript_origins": ["http://localhost:4200"]
+        "redirect_uris": ["http://demochat.helper-studio.com/oauth2callback", "http://localhost:4200/oauth2callback"],
+        "javascript_origins": ["http://localhost", "http://localhost:4200", "http://demochat.helper-studio.com"]
     }
 }

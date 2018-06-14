@@ -11,10 +11,13 @@ import { User } from "../models/user";
   styleUrls: ["./userlist.component.css"]
 })
 export class UserListComponent {
+  socketService: SocketService;
+
   constructor(
     private userService: UserService,
-    private socketService: SocketService
+    private _socketService: SocketService
   ) {
+    this.socketService = _socketService;
     this.getUsers();
   }
 
