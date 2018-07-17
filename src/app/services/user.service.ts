@@ -4,11 +4,7 @@ import { Observable } from "rxjs";
 
 import { User } from "../models/user";
 
-import { IdentityService } from "./identity.service";
-
 import { AppConfig } from "../app.config";
-
-import * as io from "socket.io-client";
 
 @Injectable({
   providedIn: "root"

@@ -1,9 +1,21 @@
-export class User{
-    socketId: string;
-    userName: string;
+export class User {
+  socketId: string;
+  name: string;
+  gender: string;
+  picture: string;
+  id: number;
 
-    constructor(socketId:string, userName:string){
-        this.socketId = socketId;
-        this.userName = userName;
-    }
+  constructor(
+    id: number,
+    name: string,
+    gender: string,
+    picture: string,
+    socketId?: string
+  ) {
+    this.socketId = socketId;
+    this.name = name;
+    this.gender = gender;
+    this.picture = picture;
+    this.id = id;
+  }
 }

@@ -24,8 +24,11 @@ export class SocketService {
   }
 
   initialize() {
+    let user = this.identityService.getCurrentUser();
+    debugger;
     this.socket = io.connect(
-      this.apiServer.url + "?id=" + this.identityService.user
+      
+      this.apiServer.url + "?id=" + user.id + "&name=" + user.name
     );
 
     this.socket.on("message", (msg: Message) => {

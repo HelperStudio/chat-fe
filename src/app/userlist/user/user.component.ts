@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
       this.color = ColorGenerator.getHexColor();
     }
 
-    var nameParts = this.user.userName.split(" ", 2);
+    var nameParts = this.user.name.split(" ", 2);
     this.nameFirstLetters = "";
     for (var i = 0; i < nameParts.length; i++) {
       this.nameFirstLetters += nameParts[i].charAt(0).toUpperCase();
