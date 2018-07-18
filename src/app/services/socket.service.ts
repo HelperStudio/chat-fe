@@ -24,15 +24,29 @@ export class SocketService {
   }
 
   initialize() {
+    var self = this;
     let user = this.identityService.getCurrentUser();
-    debugger;
+
     this.socket = io.connect(
-      
       this.apiServer.url + "?id=" + user.id + "&name=" + user.name
     );
 
+    this.socket.on("connect", () => {
+      debugger;
+      self.sendUserInfo(user);
+    });
+
     this.socket.on("message", (msg: Message) => {
       this.messages.push(msg);
+    });
+
+    this.socket.on("userInfo", (user: User) => {
+      var index = this.users.findIndex(x => x.id == user.id);
+      if (index >= 0) {
+        this.users[index] = user;
+      } else {
+        this.users.push(user);
+      }
     });
 
     this.socket.on("online", (user: User) => {
@@ -46,5 +60,9 @@ export class SocketService {
 
   sendMessage(msg: Message) {
     this.socket.emit("message", msg);
+  }
+
+  sendUserInfo(user: User) {
+    this.socket.emit("userInfo", user);
   }
 }

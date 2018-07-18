@@ -1,3 +1,4 @@
-<div class="user-shortcut" title="{{user.name}}" [ngStyle]="{'background-color': color}">
-    {{nameFirstLetters}}
+<div class="user-shortcut" title="{{user.name}}" [ngStyle]="{'background-color': color, 'background-size': 'contain', 'background-image': user.picture ? 'url(' + user.picture + ')' : none }">
+    <span *ngIf="!user.picture">{{nameFirstLetters}}</span>
+
 </div>
