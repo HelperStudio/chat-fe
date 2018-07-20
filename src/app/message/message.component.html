@@ -1,7 +1,10 @@
-<div class="msg-wrapper my-msg" [ngClass]="{'other-msg': identityService.user!=message.from}">
+<div class="msg-wrapper my-msg" [ngClass]="{'other-msg': identityService.getCurrentUser().id!=message.from}">
+    <user *ngIf="user" [user]="user"></user>
     <div class="msg">
-        <label class="font-weight-bold text-primary" [ngClass]="{'text-success': identityService.user==message.from}">{{message.from}}</label>
-        <div class="msg-text alert alert-primary" [ngClass]="{'alert-success': identityService.user==message.from}">
+        <label class="font-weight-bold text-primary" [ngClass]="{'text-success': identityService.getCurrentUser().id==message.from}">
+            <span *ngIf="user">{{user.name}}</span>
+        </label>
+        <div class="msg-text alert alert-primary" [ngClass]="{'alert-success': identityService.getCurrentUser().id==message.from}">
             {{message.text}}
         </div>
     </div>

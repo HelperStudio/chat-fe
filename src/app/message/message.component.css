@@ -25,3 +25,18 @@
     text-align: right;
     width: 100%;
 }
+
+.my-msg user {
+    float: left;
+    margin-right: 20px;
+}
+
+.my-msg user {
+    float: left;
+    margin-right: 20px;
+}
+
+.other-msg user {
+    float: right;
+    margin-left: 20px;
+}

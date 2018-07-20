@@ -32,11 +32,11 @@ export class SocketService {
     );
 
     this.socket.on("connect", () => {
-      debugger;
       self.sendUserInfo(user);
     });
 
     this.socket.on("message", (msg: Message) => {
+      console.log("message", msg);
       this.messages.push(msg);
     });
 

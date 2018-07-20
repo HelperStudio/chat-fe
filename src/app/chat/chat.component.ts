@@ -31,7 +31,7 @@ export class ChatComponent implements AfterViewInit  {
   send(){
       if(this.text){
         var user = this.identityService.getCurrentUser();
-        var msg = new Message(this.text, user.name);
+        var msg = new Message(this.text, user.id);
         this.socketService.sendMessage(msg);
         this.text = "";
       }
