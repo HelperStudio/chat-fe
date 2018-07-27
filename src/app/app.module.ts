@@ -13,7 +13,6 @@ import { UserComponent } from './userlist/user/user.component';
 import { IdentityService } from './services/identity.service';
 import { SocketService } from './services/socket.service';
 import { UserService } from './services/user.service';
-import { GoogleService } from './services/google.service';
 import { AuthService } from './services/auth.service';
 
 import { AuthGuardService } from './auth/auth.guard';
@@ -65,7 +64,6 @@ const appRoutes: Routes = [
       SocketService, 
       AuthGuardService, 
       UserService,
-      GoogleService,
       AuthService
     ],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
 export class User {
-  socketId: string;
   name: string;
   gender: string;
   picture: string;
@@ -9,10 +8,8 @@ export class User {
     id: number,
     name: string,
     gender: string,
-    picture: string,
-    socketId?: string
+    picture: string
   ) {
-    this.socketId = socketId;
     this.name = name;
     this.gender = gender;
     this.picture = picture;

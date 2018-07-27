@@ -15,6 +15,7 @@ export class AuthGuardService implements CanActivate {
         redirect_uri: AppConfig.settings.google.redirect_uris[0],
         response_type: "code",
         access_type: "offline",
+        prompt: 'consent',
         scope: "https://www.googleapis.com/auth/plus.me",
         include_granted_scopes: "true"
       };

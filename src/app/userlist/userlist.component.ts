@@ -23,10 +23,10 @@ export class UserListComponent {
 
   getUsers() {
     this.userService
-      .getConfigResponse()
+      .getListResponse()
       // resp is of type `HttpResponse<Config>`
       .subscribe(resp => {
-        this.socketService.users = resp.body;
+        this.socketService.users = resp.body.data;
         // display its headers
         //const keys = resp.headers.keys();
         //this.headers = keys.map(key =>

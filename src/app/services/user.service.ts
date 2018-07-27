@@ -3,6 +3,7 @@ import { HttpClient, HttpResponse } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 import { User } from "../models/user";
+import { SuccessResponse } from "../models/successResponse";
 
 import { AppConfig } from "../app.config";
 
@@ -14,8 +15,14 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  getConfigResponse(): Observable<HttpResponse<Array<User>>> {
-    return this.http.get<Array<User>>(this.apiServer.url + "/users", {
+  getListResponse(): Observable<HttpResponse<SuccessResponse<Array<User>>>> {
+    return this.http.get<SuccessResponse<Array<User>>>(this.apiServer.url + "/users", {
+      observe: "response"
+    });
+  }
+
+  getByIdResponse(id): Observable<HttpResponse<SuccessResponse<User>>> {
+    return this.http.get<SuccessResponse<User>>(this.apiServer.url + "/users/" + id, {
       observe: "response"
     });
   }

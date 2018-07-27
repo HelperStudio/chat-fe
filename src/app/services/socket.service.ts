@@ -3,6 +3,7 @@ import { Message } from "../models/message";
 import { User } from "../models/user";
 
 import { IdentityService } from "./identity.service";
+import { UserService } from "./user.service";
 
 import { AppConfig } from "../app.config";
 
@@ -18,7 +19,10 @@ export class SocketService {
 
   protected apiServer = AppConfig.settings.apiServer;
 
-  constructor(private identityService: IdentityService) {
+  constructor(
+    private identityService: IdentityService,
+    private userService: UserService
+  ) {
     this.messages = [];
     this.users = [];
   }
@@ -31,30 +35,24 @@ export class SocketService {
       this.apiServer.url + "?id=" + user.id + "&name=" + user.name
     );
 
-    this.socket.on("connect", () => {
-      self.sendUserInfo(user);
-    });
+    this.socket.on("connect", () => {});
 
     this.socket.on("message", (msg: Message) => {
       console.log("message", msg);
       this.messages.push(msg);
     });
 
-    this.socket.on("userInfo", (user: User) => {
-      var index = this.users.findIndex(x => x.id == user.id);
-      if (index >= 0) {
-        this.users[index] = user;
-      } else {
-        this.users.push(user);
-      }
-    });
-
     this.socket.on("online", (user: User) => {
-      this.users.push(user);
+      self.userService.getByIdResponse(user.id).subscribe(resp => {
+        if (!self.users.some(x => x.id == user.id)) {
+          self.users.push(resp.body.data);
+        }
+      });
     });
 
     this.socket.on("offline", (user: User) => {
-      this.users = this.users.filter(x => x.socketId != user.socketId);
+      console.log("offline", user);
+      self.users = self.users.filter(x => x.id != user.id);
     });
   }
 
