@@ -9,6 +9,8 @@ import { MessageComponent } from './message/message.component';
 import { ChatComponent } from './chat/chat.component';
 import { UserListComponent } from './userlist/userlist.component';
 import { UserComponent } from './userlist/user/user.component';
+import { RoomListComponent } from './roomlist/roomlist.component';
+import { RoomComponent } from './roomlist/room/room.component';
 
 import { IdentityService } from './services/identity.service';
 import { SocketService } from './services/socket.service';
@@ -28,6 +30,7 @@ export function initializeApp(appConfig: AppConfig) {
 
 const appRoutes: Routes = [
   { path: 'chat', component: ChatComponent, canActivate: [AuthGuardService] },
+  { path: 'rooms', component: RoomListComponent, canActivate: [AuthGuardService] },
   { path: 'oauth2callback', component: OAuth2CallbackComponent },
   { path: '',
     redirectTo: '/chat',
@@ -43,7 +46,9 @@ const appRoutes: Routes = [
     ChatComponent,
     UserListComponent,
     UserComponent,
-    OAuth2CallbackComponent
+    OAuth2CallbackComponent,
+    RoomListComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,
