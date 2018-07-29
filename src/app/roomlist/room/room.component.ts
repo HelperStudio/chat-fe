@@ -1,6 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 import { Room } from "../../models/room";
+
+import { RoomService } from "../../services/room.service";
 
 @Component({
   selector: "room",
@@ -9,5 +11,13 @@ import { Room } from "../../models/room";
 })
 export class RoomComponent {
   @Input() room: Room;
-  constructor() {}
+  @Output() remove = new EventEmitter<Room>();
+  constructor(private roomService: RoomService) {}
+
+  delete(event: Event) {
+    event.preventDefault();
+    this.roomService.deleteRoomResponse(this.room).subscribe(resp => {
+      this.remove.emit(this.room);
+    });
+  }
 }

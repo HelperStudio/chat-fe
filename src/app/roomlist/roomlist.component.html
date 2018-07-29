@@ -1,5 +1,8 @@
 <div class="list-group">
+    <button (click)='openCreateModal()' class="list-group-item list-group-item-action">
+        Create new chat
+    </button>
     <a href="/rooms/{{room.id}}" class="list-group-item list-group-item-action" *ngFor="let room of rooms">
-        <room [room]="room"></room>
+        <room [room]="room" (remove)="onRemove($event)"></room>
     </a>
 </div>
